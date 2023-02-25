@@ -6,6 +6,7 @@ class IntroPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       child: Image(image: AssetImage('assets/intro/f.jpg')),
     );
   }

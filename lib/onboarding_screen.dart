@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,6 +18,8 @@ class Onboarding extends StatefulWidget {
 
 PageController _controller = PageController();
 
+bool onLastPage = false;
+
 class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
@@ -24,45 +27,62 @@ class _OnboardingState extends State<Onboarding> {
         body: Stack(
       children: [
         PageView(
+          
           controller: _controller,
+          onPageChanged: (index) {
+            setState(() {
+              onLastPage = (index == 3);
+            });
+          },
           children: [
             IntroPage1(),
             IntroPage2(),
             IntroPage3(),
+            AuthPage(),
           ],
         ),
+        onLastPage
+        ?
         Container(
+          
+          
+        )
+        :Container(
+          
           alignment: Alignment(0, 0.8),
           child: SmoothPageIndicator(
             controller: _controller,
-            count: 3,
+            count: 4,
           ),
         ),
+
+
+
+
         Container(
           alignment: Alignment(0.7, 0.8),
-          child: GestureDetector(
+          child: 
+          
+          
+          onLastPage 
+            ? GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => authontication()));
+              _controller.jumpToPage(3);
+            },
+            child: Text(''),
+          )
+          : GestureDetector(
+            onTap: () {
+              _controller.jumpToPage(3);
             },
             child: Text('skip'),
-          ),
+          )
+          
+
+      
         )
+        
       ],
     ));
   }
-}
-
-class authontication extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        body: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            return AuthPage();
-          },
-        ),
-      );
 }
