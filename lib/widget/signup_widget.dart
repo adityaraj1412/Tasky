@@ -41,11 +41,15 @@ class _SignUpWidgetState extends State<SignUpWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 80),
-            FlutterLogo(size: 80),
+            SizedBox(height: 60),
+            Container(
+              child: Image(image: AssetImage('assets/pkey.png')),
+              height: 150,
+              width: 150,
+            ),
             SizedBox(height: 20),
             Text(
-              'Hey There,\n Welcome Back',
+              'Hey There,\n Welcome To TASKY',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
@@ -75,29 +79,35 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             SizedBox(height: 20),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 233, 215, 57),
                 minimumSize: Size.fromHeight(50),
+                shape: StadiumBorder(),
               ),
               icon: Icon(Icons.lock_open, size: 32),
               label: Text(
                 'Sign Up',
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontWeight: FontWeight.w900),
               ),
               onPressed: signUp,
             ),
             SizedBox(height: 20),
+            Padding(padding: EdgeInsets.all(10)),
             RichText(
               text: TextSpan(
-                style: TextStyle(color: Colors.red, fontSize: 20),
-                text: 'Already have an account?  ',
+                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 15),
+                text: 'Already a member ?  ',
                 children: [
                   TextSpan(
                     recognizer: TapGestureRecognizer()
                       ..onTap = widget.onClickedSignIn,
                     text: 'Log In',
                     style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
+                              color: Color.fromARGB(255, 2, 192, 255),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800),
                   ),
                 ],
               ),

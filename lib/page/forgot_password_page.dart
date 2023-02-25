@@ -26,8 +26,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          backgroundColor: Colors.amber,
           title: Text('Reset Password'),
         ),
         body: Padding(
@@ -45,7 +44,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 SizedBox(height: 20),
                 TextFormField(
                   controller: emailController,
-                  cursorColor: Colors.white,
+                  cursorColor: Color.fromARGB(255, 4, 58, 94),
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(labelText: 'Email'),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -54,11 +53,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           ? 'Enter a valid email'
                           : null,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 25),
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                      // minimumSize:Size.fromHeight(50),
-                      ),
+                primary: Color.fromARGB(255, 233, 215, 57),
+                // minimumSize: Size.fromHeight(50),
+                shape: StadiumBorder(),
+                  ),
                   icon: Icon(Icons.email_outlined),
                   label: Text(
                     'Reset Password',
