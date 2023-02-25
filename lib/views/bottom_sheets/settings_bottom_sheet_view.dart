@@ -26,6 +26,7 @@ class SettingsBottomSheetView extends StatelessWidget {
     return Consumer<AppViewModel>(builder: (context, viewModel, child) {
       return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 233, 215, 57),
         title: Text('Setting'),
       ),
         body: Padding(padding: EdgeInsets.all(32),
@@ -39,11 +40,13 @@ class SettingsBottomSheetView extends StatelessWidget {
             user.email!,
             style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 20),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              minimumSize: Size.fromHeight(50),
-            ),
+                primary: Colors.amber,
+                minimumSize: Size.fromHeight(40),
+                shape: StadiumBorder(),
+              ),
             icon: Icon(Icons.arrow_back,size:32),
             label: Text(
               'Sign Out',

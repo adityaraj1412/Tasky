@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:taskmanagementapp/onboarding_screen.dart';
 import 'package:taskmanagementapp/page/verify_email_page.dart';
 import 'package:taskmanagementapp/utils.dart';
 import 'package:taskmanagementapp/widget/login_widget.dart';
@@ -49,7 +50,7 @@ class MainPage extends StatelessWidget {
             } else if (snapshot.hasData) {
               return HomePage();
             } else {
-              return AuthPage();
+              return Onboarding();
             }
           },
         ),
